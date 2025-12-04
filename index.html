@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name | Researcher</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-main: #222222;
+            --text-secondary: #555555;
+            --text-light: #888888;
+            --accent-color: #004d99; /* 经典的深蓝链接色 */
+            --border-color: #eeeeee;
+            --sidebar-width: 280px;
+            --container-width: 960px;
+        }
+
+        /* 全局设置 */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            font-size: 15px;
+        }
+
+        /* 布局容器：核心 Grid 布局 */
+        .wrapper {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: var(--sidebar-width) 1fr; /* 左侧固定宽，右侧自适应 */
+            gap: 4rem; /* 左右栏间距 */
+            padding: 4rem 2rem;
+        }
+
+        /* --- 左侧侧边栏 (Sidebar) --- */
+        .sidebar {
+            /* 关键：让左侧在滚动时吸附在顶部 */
+            position: sticky; 
+            top: 2rem;
+            height: fit-content;
+        }
+
+        .profile-photo {
+            width: 160px;
+            height: 160px;
+            background-color: #f0f0f0; /* 这里的灰色背景代表头像占位 */
+            border-radius: 50%; /* 圆形头像，若想方形改成 8px */
+            margin-bottom: 1.5rem;
+            object-fit: cover;
+            /* 如果有真实图片，请在 img 标签里 src="..." */
+        }
+
+        .sidebar h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.75rem;
+            margin: 0 0 0.5rem 0;
+            line-height: 1.2;
+        }
+
+        .sidebar .role {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+        
+        .contact-info div { margin-bottom: 0.3rem; }
+
+        .social-links a {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .social-links a:hover { text-decoration: underline; }
+
+        /* --- 右侧主要内容 (Main Content) --- */
+        main section {
+            margin-bottom: 4rem;
+        }
+
+        /* 章节标题 */
+        h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.4rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            color: #111;
+        }
+
+        p { margin-bottom: 1rem; color: #333; }
+        
+        /* 链接通用样式 */
+        .content-link {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        .content-link:hover { text-decoration: underline; }
+
+        /* News 列表 - 更加紧凑 */
+        .news-list { list-style: none; padding: 0; }
+        .news-list li {
+            display: flex;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+        .news-date {
+            min-width: 85px;
+            font-variant-numeric: tabular-nums;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            padding-top: 2px; /* 视觉微调对齐 */
+        }
+
+        /* 论文列表 - 增强层次感 */
+        .pub-item {
+            display: grid;
+            grid-template-columns: 1fr; /* 可以在这里加缩略图列 */
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .pub-title {
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .pub-authors { margin-bottom: 0.3rem; color: var(--text-secondary); }
+        .pub-venue { font-style: italic; color: var(--text-secondary); margin-bottom: 0.4rem; font-family: 'Merriweather', serif; font-size: 0.9rem;}
+        
+        .tag-row a {
+            display: inline-block;
+            font-size: 0.75rem;
+            border: 1px solid var(--border-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-right: 6px;
+            transition: all 0.2s;
+        }
+        .tag-row a:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        /* 移动端响应式：变成单栏 */
+        @media (max-width: 768px) {
+            .wrapper {
+                grid-template-columns: 1fr; /* 变为单列 */
+                gap: 2rem;
+                padding: 2rem 1.5rem;
+            }
+            .sidebar {
+                position: relative; /* 移动端取消吸附 */
+                top: 0;
+                text-align: center;
+                border-bottom: 1px solid var(--border-color);
+                padding-bottom: 2rem;
+            }
+            .profile-photo { margin: 0 auto 1.5rem auto; }
+            .news-list li { flex-direction: column; }
+            .news-date { margin-bottom: 0.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        
+        <aside class="sidebar">
+            <img src="https://via.placeholder.com/160" alt="Profile Photo" class="profile-photo">
+            
+            <h1>Your Name</h1>
+            <div class="role">
+                Postdoctoral Researcher<br>
+                University of Technology Sydney
+            </div>
+
+            <div class="contact-info">
+                <div>Room XXX, Building 11</div>
+                <div>Broadway, Ultimo NSW 2007</div>
+                <div><a href="mailto:your.email@uts.edu.au" class="content-link">your.email@uts.edu.au</a></div>
+            </div>
+
+            <div class="social-links">
+                <a href="#">Google Scholar</a>
+                <a href="#">Github</a>
+                <a href="#">Twitter / X</a>
+                <a href="#">CV (PDF)</a>
+            </div>
+        </aside>
+
+        <main>
+            <section id="about">
+                <h2>About Me</h2>
+                <p>
+                    I am a Postdoctoral Researcher at <a href="#" class="content-link">University of Technology Sydney (UTS)</a>, working with Prof. XXX. 
+                    I received my Ph.D. in Computer Science from UTS in 2024.
+                </p>
+                <p>
+                    My research interests lie in <strong>Large Language Models (LLMs)</strong>, <strong>Graph Neural Networks</strong>, and <strong>Recommendation Systems</strong>. I am particularly interested in how to leverage LLMs to enhance structure learning.
+                </p>
+            </section>
+
+            <section id="news">
+                <h2>News</h2>
+                <ul class="news-list">
+                    <li>
+                        <span class="news-date">Nov 2025</span>
+                        <span>Accepted the Associate Professor position at Southeast University (starting Jan 2026).</span>
+                    </li>
+                    <li>
+                        <span class="news-date">Sep 2025</span>
+                        <span>One paper on LLM Editing accepted to NeurIPS 2025.</span>
+                    </li>
+                    <li>
+                        <span class="news-date">Jun 2024</span>
+                        <span>Successfully defended my Ph.D. thesis!</span>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="publications">
+                <h2>Selected Publications</h2>
+                
+                <div class="pub-item">
+                    <div class="pub-title">Large Language Models for Graph Learning: A Survey</div>
+                    <div class="pub-authors"><strong>Your Name</strong>, Co-author A, Co-author B</div>
+                    <div class="pub-venue">IEEE Transactions on Knowledge and Data Engineering (TKDE), 2025</div>
+                    <div class="tag-row">
+                        <a href="#">PDF</a>
+                        <a href="#">Code</a>
+                        <a href="#">BibTex</a>
+                    </div>
+                </div>
+
+                <div class="pub-item">
+                    <div class="pub-title">Enhancing Recommendation Systems with Knowledge Graphs</div>
+                    <div class="pub-authors">Author A, <strong>Your Name</strong>, Author C</div>
+                    <div class="pub-venue">WWW 2024 (Oral)</div>
+                    <div class="tag-row">
+                        <a href="#">PDF</a>
+                        <a href="#">Project Page</a>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>
