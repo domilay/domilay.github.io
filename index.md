@@ -1,37 +1,45 @@
-## Welcome to GitHub Pages
+---
+layout: single
+author_profile: true
+title: "About Me"
+header:
+  overlay_color: "#333" # 顶部横幅颜色，如果不喜欢可以删掉这行
+  overlay_filter: 0.5
+---
 
-You can use the [editor on GitHub](https://github.com/domilay/domilay.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
+Welcome to my personal homepage! I am a **Ph.D. Candidate** at [University Name](http://www.example.com), advised by Prof. [Advisor Name](http://www.example.com).
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+My research interests include **Computer Vision**, **Machine Learning**, and **Robotics**.
 
-### Markdown
+## :newspaper: News
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+*   **[Feb. 2024]** One paper accepted to **CVPR 2024**!
+*   **[Jan. 2024]** Started my internship at **XYZ Lab**.
 
-```markdown
-Syntax highlighted code block
+## :memo: Selected Publications
 
-# Header 1
-## Header 2
-### Header 3
+<!-- 下面是一个手动维护的论文列表示例，简单直接 -->
 
-- Bulleted
-- List
+### 2024
 
-1. Numbered
-2. List
+**Paper Title Goes Here**  
+**Your Name**, Co-author Name, Advisor Name  
+*Conference on Computer Vision and Pattern Recognition (CVPR), 2024*  
+[[PDF]](#) [[Code]](#) [[Project Page]](#)
 
-**Bold** and _Italic_ and `Code` text
+### 2023
 
-[Link](url) and ![Image](src)
-```
+**Another Great Paper Title**  
+Co-author Name, **Your Name**, Advisor Name  
+*International Conference on Computer Vision (ICCV), 2023*  
+[[PDF]](#) [[Code]](#)
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## :mortar_board: Education
 
-### Jekyll Themes
+*   **Ph.D.** in Computer Science, University Name (202X - Present)
+*   **B.S.** in Computer Science, University Name (201X - 202X)
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/domilay/domilay.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## :email: Contact
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+*   **Email**: `your.email@example.com`
+*   **Office**: Room 123, Building Name, University Name
